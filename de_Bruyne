@@ -1,0 +1,62 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+
+using namespace std;
+
+
+void F(string temp)
+{
+map<string,set<string> > V;
+set <string> str;
+vector <char> vec;
+int N,n;
+string ss;
+
+  if(temp.size()==N)
+      {
+        str.insert(temp);
+        return;
+      }
+  for(int i=0;i<n;i++)
+      {
+        ss=temp+vec[i];
+        F(ss);
+        ss.clear();
+      }
+}
+
+int main() {
+
+map<string,set<string> > V;
+set <string> w;
+vector <char> vec;
+int l,n;
+string h, p ,s, k;
+
+    cin.tie(0);
+    
+    cin>>l>>n;
+    vec.resize(n);
+    for(int i=0;i<n;i++)cin> >vec[i];
+    
+    F(k);
+    
+    
+    for(auto& x : w)
+    {
+      for(int i=0;i<x.length();i++)
+      {
+        if(i!=x.length()-1)p+=x[i];
+        if(i!=0)s+=x[i];
+      }
+      V[p].insert(s);
+      p.clear(),s.clear();
+    }
+    for(auto& x:V){
+      cout<<x.first;
+
+    }
+}
